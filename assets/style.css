@@ -1,3 +1,44 @@
-h1 {
+/* univerzalni selector
+ */
+*{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: burlywood;
+
+}
+
+/* h1 {
     color: lightcoral;
+} */
+/* class selector*/
+.noa{
+    color: aqua;
+}
+
+.jedan{
+
+    color:burlywood;
+}
+
+.iz{
+    color: darkkhaki;
+}
+
+.mat{
+    color: midnightblue;
+}
+
+/* id selector */
+#prim{
+    color:rebeccapurple;
+
+}
+
+/* attribute selector */
+
+p[draggable="true"]{
+    color: beige;
+}
+
+p[draggable="false"]{
+    color: forestgreen;
 }
