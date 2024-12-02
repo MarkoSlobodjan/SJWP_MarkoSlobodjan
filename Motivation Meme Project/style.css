@@ -1,0 +1,23 @@
+*{
+    background-color: black;
+}
+#slika{
+    height: 400px;
+    width: 50%;
+    margin-left: 25%;
+    border: 5px,solid,white;
+}
+#tekst{
+    font-family: "Regular Libre Baskerville";
+    color: white;
+    text-align: center;
+}
+#tekst2{
+    font-family: Regular Libre Baskerville;
+    color: white;
+    text-align: center;
+}
+#ne{
+    width: 50%;
+    margin-left: 25%;
+}
