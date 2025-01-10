@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Css gradient</title>
+    <style>
+        p{
+            font-size: 15px;
+        }
+        body{
+            
+            width: 400px;
+            height: 900px;
+            background-image: linear-gradient(#D4D8DD,#C0C8CA,#AAB7B7,#2E4156,#1a2d42);
+        }
+        #poz{
+            position: relative;
+            top: 25%;
+            left: 50%;
+        
+            height: 600px;
+            width: 600px;
+            padding: 10px;
+        }
+        #prvi{
+            width: 400px;
+            border-radius: 150px;
+            background-color: #1a2d42;
+            height: 150px;
+            box-shadow:2px -2px 4px 1px black
+        }
+        #drugi{
+            position: absolute;
+            width: 400px;
+            border-radius: 150px;
+            background-color: #2E4156;
+            top: 100px;
+            height: 150px;
+            box-shadow:2px -2px 4px 1px black
+        }
+        #treci{
+            position: absolute;
+            width: 400px;
+            border-radius: 150px;
+            background-color: #AAB7B7;
+            top: 175px;
+            height: 150px;
+            box-shadow:2px -2px 4px 1px lightslategray
+        }
+        #cet{
+            position: absolute;
+            width: 400px;
+            border-radius: 150px;
+            background-color: #C0C8CA;
+            top: 250px;
+            height: 150px;
+            box-shadow:2px -2px 4px 1px lightslategray
+        }
+        #pet{
+            position: absolute;
+            width: 400px;
+            border-radius: 150px;
+            background-color: #D4D8DD;
+            top: 325px;
+            height: 150px;
+            box-shadow:2px -2px 4px 1px lightslategray
+        }
+        #pr{
+            position: relative;
+            top: 15px;
+            left: 25%;
+            color: #D4D8DD;
+            font-family: sans-serif;
+            font-weight: 600;
+        }
+        #dr{
+            position: relative;
+      
+            left: 25%;
+            color: #C0C8CA;
+            font-family: sans-serif;
+            font-weight: 600;
+        }
+        #tr{
+            position: relative;
+            
+            left: 25%;
+            color: #2E4156;
+            font-family: sans-serif;
+            font-weight: 600;
+        }
+        #ce{
+            position: relative;
+      
+            left: 25%;
+            color: #2E4156;
+            font-family: sans-serif;
+            font-weight: 600;
+        }
+        #pe{
+            position: relative;
+            left: 25%;
+            color: #041d3a;
+            font-family: sans-serif;
+            font-weight: 600;      
+        }
+
+    </style>
+</head>
+<body>
+    
+    <div id="poz">
+        <div id="prvi">
+            <p id="pr">#1A2D42</p>
+        </div>
+        <div id="drugi">
+            <p id="dr">#2E4156</p>
+        </div>
+        <div id="treci">
+          <p id="tr">#AAB7B7</p>  
+        </div>
+        <div id="cet">
+            <p id="ce">#C0C8CA</p>
+        </div>
+        <div id="pet">
+            <p id="pe">#D4D8DD</p>
+        </div>
+    </div>
+    
+</body>
+</html>
