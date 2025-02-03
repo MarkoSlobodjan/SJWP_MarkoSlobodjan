@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tranziciije 2</title>
+    <style>
+        .poz{
+            background-color: aqua;
+            width: 600px;
+            height: 200px;
+            position: relative;
+        }
+        .prvi{
+            background-color: red;
+            height: 100px;
+            width: 100px;
+            position: absolute;
+            left: 200px;
+            transition: 1s;
+        }
+        .drugi{
+            top: 100px;
+            background-color: blue;
+            height: 100px;
+            width: 100px;
+            position: absolute;
+            left: 200px;
+            transition: 1s;
+        }
+        .treci{
+            background-color: yellow;
+            height: 100px;
+            width: 100px;
+            position: absolute;
+            left: 300px;
+            transition: 1s;
+        }
+        .cet{
+            top: 100px;
+            background-color: green;
+            height: 100px;
+            width: 100px;
+            position: absolute;
+            left: 300px;
+   
+            transition: transform 1s;
+        }
+        div.poz:hover .prvi{
+            transform: rotate(90deg);
+            transform-origin:top left;
+        }
+        div.poz:hover .drugi{
+            transform: rotate(90deg);
+            transform-origin:left top ;
+        }
+        div.poz:hover .treci{
+            transform: rotate(90deg);
+            transform-origin: bottom right;
+        }
+        div.poz:hover .cet{
+            transform: rotate(90deg);
+            transform-origin:bottom right ;
+        }
+        .hi{
+            position: absolute;
+            font-size: 50px;
+            top: 75px;
+            left: 250px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="poz">
+        <div class="hi">Hi!</div>
+        <div class="prvi"></div>
+        <div class="drugi"></div>
+        <div class="treci"></div>
+        <div class="cet"></div>
+    </div>
+
+
+
+</body>
+</html>

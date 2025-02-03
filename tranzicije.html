@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tranzicije</title>
+    <style>
+        .poz{
+            width: 1000px;
+            height: 400px;
+            position: relative;
+    
+            margin-top: 10px;
+        }
+        .prvi{
+            position: absolute;
+            width: 200px;
+            height: 100px;
+            background-color: brown;
+           transition: width 2s ease-in-out;   
+           
+        }
+        .drugi{
+            top: 125px;
+            position: absolute;
+            background-color: blue;
+            height: 100px;
+            width: 200px;
+            transition: width 2s ease-in-out 2s;
+
+        }
+        div.poz:hover .prvi{
+            width: 600px;
+        }
+        div.poz:hover .drugi{
+            width: 600px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="poz"> 
+        <div class="prvi"></div>
+        <div class="drugi"></div>
+    </div>
+
+
+
+</body>
+</html>
