@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="4.zadaca4">
+    <meta name="author" content="Marko Slobođan">
+    <title>Zadaća 4</title>
+    <style>
+        body{
+            background-color: #f3f3f3;
+        }
+        .vizitka{
+            width: 500px;
+            height: 300px;
+            border: 4px solid black;
+        }
+        .svojstva{
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            text-align: center;
+            margin-top: 10px;
+            gap: 15px;
+        }
+        .slika{
+            width: 150px;
+            height: 150px;
+            margin: 10px 0px 10px 10px;
+            border-radius: 70%;
+        }
+        .podatci{
+            flex: 1;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+        }
+        .opis{
+            font-size: 15px;
+        }
+        .email{
+            font-size: 15px;
+            margin: 15px 0px 0px 5px;
+        }
+        .telefon{
+            font-size: 15px;
+            margin: 5px 0px 20px 3px;
+        }
+        .drustveneMreze{
+            display: flex;
+            justify-content: space-evenly;
+        }
+        .poz{
+            position: relative;
+            background-color: #ffffff;
+            height: 300px;
+            width: 400px;
+        }
+        .zelenakocka{
+            position: absolute;
+            margin-left: 125px;
+            margin-top:150px;
+            background-color: #1a353c;
+            height: 150px;
+            width: 150px;
+        }
+        .gorepravo{
+            position: absolute;
+            background-color: #1a353c;
+            margin-left: 175px;
+            margin-top: 60px;
+            height: 90px;
+            width: 50px;
+        }
+        .trokutdesno{
+            position: absolute;
+            height: 0px;
+            width: 0px;
+            margin-left:225px;
+            margin-top: 60px;
+            border-bottom: 90px solid #1a353c;
+            border-right: 65px solid white;
+        }
+        .trokutlijevo{
+            position: absolute;
+            height: 0px;
+            width: 0px;
+            margin-left:110px;
+            margin-top: 60px;
+            border-bottom: 90px solid #1a353c;
+            border-left: 65px solid white;
+        }
+        .goresmede{
+            background-color: #e0b673;
+            position: absolute;
+            width: 25px;
+            height: 40px;
+            margin-left: 187px;
+            margin-top: 80px;
+            z-index: 0;
+        }
+        .bijelikrug{
+            position: absolute;
+            margin-left: 162px;
+            margin-top: 115px;
+            height: 37px;
+            width: 75px;
+            border-radius: 50px 50px 0 0;
+            background: #ffffff;
+        }
+        .bijelogore{
+            position: absolute;
+            background-color: #ffffff;
+            height: 10px;
+            width: 25px;
+            margin-left: 187px;
+            margin-top: 70px;
+            z-index: 2;
+        }
+    </style>
+</head>
+<body>
+    <h2>Zadatak 1</h2>
+    <img src="zadaca-slike/slikasjwp.png" alt="slikaZadatka" width="400" height="300">
+    <div class="poz">
+        <div class="zelenakocka"></div>
+        <div class="gorepravo"></div>
+        <div class="trokutdesno"></div>
+        <div class="trokutlijevo"></div>
+        <div class="goresmede"></div>
+        <div class="bijelikrug"></div>
+        <div class="bijelogore"></div>
+    </div>
+
+
+    <h2>Zadatak 2</h2>
+    <div class="vizitka">
+        <div class="svojstva">
+            <img class="slika" src="zadaca-slike/slika3sjwp.jpg" alt="slikaViz">
+            <div class="podatci">
+                <h1 style="font-size: 40px;">Marko Slobođan</h1>
+                <p class="opis">Učenik sam tehničke škole. I treniram atletiku.</p>
+                <p class="email">Email: marko.slobodjan4@gmail.com</p>
+                <p class="telefon">Telefon: +385 99 405 9860</p>
+                <div class="drustveneMreze">
+                    <img style="width: 50px; height: 50px;" src="zadaca-slike/slika2sjwp.png" alt="Linkedin">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
