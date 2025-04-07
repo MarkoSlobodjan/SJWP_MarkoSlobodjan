@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fixed header</title>
     <style>
-
         #poc{
             position: absolute;
             width: 100%;
@@ -40,6 +39,74 @@
             bottom: 0%;
         }
 
+        #main{
+            position: relative;
+        }
+        #dobro{
+            position: relative;
+            top: 400px;
+            margin-left: 45%;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        #ime{
+            position: relative;
+            top: 400px;
+            margin-left: 35%;
+        }
+        #imelb{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        #imein{
+            height: 20px;
+            width: 350px;
+        }
+        #Lozinka{
+            position: absolute;
+            top: 525px;
+            margin-left: 37.5%;
+        }
+        #lozinkalb{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        #lozinkain{
+            height: 20px;
+            width: 350px;
+        }
+        #prijava{
+            position: absolute;
+            top: 575px;
+            margin-left: 41%;
+            height: 30px;
+            width: 355px;
+            background-color: #2e6fb6;
+            font-family: Arial, Helvetica, sans-serif;
+            border: 0px;
+            color: #f3f3f3;
+        }
+
+        #slika{
+            position: absolute;
+            bottom: 2px;
+            width: 175px;
+            height: 175px;
+            bottom: 0px;
+            left: 45%;
+        }
+        #prijava:hover{
+            background: #0e3a5f;
+        }
+        #footer{
+         position: flex;
+         flex-direction: row;
+        margin-top:800px;
+        border-top: 1px solid black;
+        justify-content: space-evenly;
+        }
+        #link{
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 8px;
+            border-right: 1px solid;
+        }
     </style>
 </head>
 <body>
@@ -50,13 +117,38 @@
         <div id="dole"></div>
     </div>
 
+    <div id="main">
+        <h1 id="dobro">Dobro došli</h1>
+        <div id="ime">
+            <label id="imelb">Korisničko ime:</label>
+            <input type="text" id="imein">
+        </div>
 
+        <div id="Lozinka">
+            <label id="lozinkalb">Lozinka:</label>
+            <input type="text" id="lozinkain">
+        </div>
+        <button id="prijava">PRIJAVA</button>
+    </div>
+
+   
+        <img src="cnlogo.svg" alt="Bla Bla" id="slika">
+
+    <div id="footer">
+        <label>Kontakt +385 1 6661 500</label>
+        <a href="helpdesk@skole.hr" id="link">Online kontakti</a>
+        <a href="https://www.carnet.hr/usluga/e-dnevnik-za-skole/" id="link">Važni dokumneti</a>
+        <a href="ftp://ftp.carnet.hr/pub/CARNet/docs/rules/CDA0058.pdf" id="link">Prava i obaveze korisnika</a>
+        <a href="https://e-dnevnik.skole.hr/main/accessibility" id="link">Izjava o pristupačnosti</a>
+        <a href="https://www.carnet.hr/wp-content/uploads/2020/07/Obavijest-o-privatnosti_e-Dnevnik.pdf" id="link">Obavijest o privatnosti</a>
+        <label>© CARNET 2025.</label>
+    </div>
 </body>
 </html>
 
 
 
-#2d71a8
+<!-- #2d71a8
 #52b458
 #9f569f
-#2e6fb6
+#2e6fb6 -->

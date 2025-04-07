@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            position: absolute;
+            top: 50%;
+            left: 25%;
+            height: 150px;
+            width: 150px;
+            background-color: white;
+            border-radius: 50%;
+            border: 15px solid gold;
+            border-top: 15px solid white;
+
+            animation-name: spin;
+            animation-iteration-count: infinite;
+            animation-duration: 2s;
+            animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1);  
+
+        }
+
+        /* HTML: <div class="loader"></div> */
+
+
+@keyframes l10 {
+  to {transform:translate(calc(100%/3))}
+}
+        @keyframes spin {
+            100%{
+                transform: rotate(360deg);
+            }
+        }
+
+</style>
+
+
+</head>
+<body>
+    
+    <div class="box">
+        
+        <div class="prvidash"></div>
+        
+        <div class="drugidash"></div>
+    </div>
+
+
+</body>
+</html>
