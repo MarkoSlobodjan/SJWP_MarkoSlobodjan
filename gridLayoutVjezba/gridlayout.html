@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid Layout Prvi</title>
+
+    <style>
+    .container {
+         display: grid;
+         grid-template-columns: 50px 50px 50px;
+         grid-template-rows: 50px 50px 50px;
+         outline: 1px black solid;
+         width: 150px;
+         height: 80px;
+         margin: 10px;
+         padding: 10px;
+        }
+    #kocka{
+        background-color: burlywood;
+        height: 25px;
+        width: 30px;
+        padding: 5px;
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="kocka">A</div>
+        <div id="kocka">B</div>
+        <div id="kocka">C</div>
+        <div id="kocka">D</div>
+        <div id="kocka">E</div>
+        <div id="kocka">F</div>
+      </div>
+</body>
+</html>

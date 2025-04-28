@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Šesti zad</title>
+    <style>
+        .poz{
+            display: grid;
+            grid-template-columns:50px 50px 50px 50px;
+            grid-template-rows: 50px 50px;
+            gap :5px
+        }      
+        #A{
+            border-radius: 5px;
+            background-color: gray;
+            grid-column: 1/3;
+            padding: 5px;
+        }  
+        #B{
+            border-radius: 5px;
+            background-color: gray;
+            grid-row: span 2;
+            padding: 5px;
+        }
+        #C{
+            border-radius: 5px;
+            background-color: gray;
+            grid-row: span 2;
+            padding: 5px;
+        }
+        #D{
+            border-radius: 5px;
+            padding: 5px;
+            background-color: gray;
+        }
+        #E{
+            border-radius: 5px;
+            padding: 5px;
+            background-color: gray;
+        }
+    </style>
+</head>
+<body>
+    <div class="poz">
+        <div id="A">A</div>
+        <div id="B">B</div>
+        <div id="C">E</div>
+        <div id="D">C</div>
+        <div id="E">D</div>
+    </div>
+</body>
+</html>
