@@ -3,24 +3,557 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-
+    <title>.NET MAUI - Google's latest open source design system</title>
     <style>
-        .abc{
-            position: absolute;
-            word-spacing: 30%;
-            font-family: Arial, Helvetica, sans-serif;
-            max-width: 10%;
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        .abc:hover{
-            color: blue;
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            background: #fef7ff;
+            color: #1c1b1f;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Navigation */
+        .nav-rail {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 80px;
+            height: 100vh;
+            background: #fef7ff;
+            border-right: 1px solid #cab6cf;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 24px 0;
+            z-index: 100;
+        }
+
+        .nav-logo {
+            width: 48px;
+            height: 48px;
+            background: #6750a4;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 12px;
+            margin-bottom: 32px;
+        }
+
+        .nav-items {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .nav-item {
+            width: 56px;
+            height: 32px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #49454f;
+            font-size: 11px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 200ms cubic-bezier(0.2, 0, 0, 1);
+            cursor: pointer;
+        }
+
+        .nav-item:hover {
+            background: #e8def8;
+            color: #1d192b;
+        }
+
+        .nav-item.active {
+            background: #e8def8;
+            color: #1d192b;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: 80px;
+            min-height: 100vh;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0 120px;
+            background: linear-gradient(135deg, #6750a4 0%, #7c4dff 50%, #e91e63 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(103, 80, 164, 0.1);
+            backdrop-filter: blur(100px);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: left;
+            color: white;
+        }
+
+        .hero-title {
+            font-size: clamp(48px, 6vw, 96px);
+            font-weight: 400;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            letter-spacing: -0.5px;
+        }
+
+        .hero-subtitle {
+            font-size: 28px;
+            font-weight: 400;
+            margin-bottom: 16px;
+            opacity: 0.9;
+        }
+
+        .hero-description {
+            font-size: 18px;
+            max-width: 600px;
+            margin-bottom: 48px;
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        /* Buttons */
+        .btn-filled {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: none;
+            padding: 16px 32px;
+            border-radius: 20px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 200ms cubic-bezier(0.2, 0, 0, 1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-filled:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.3), 0px 2px 6px 2px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-outlined {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            padding: 14px 30px;
+            border-radius: 20px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 200ms cubic-bezier(0.2, 0, 0, 1);
+        }
+
+        .btn-outlined:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: white;
+        }
+
+        /* Main Sections */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-size: 48px;
+            font-weight: 400;
+            margin-bottom: 16px;
+            color: #1c1b1f;
+        }
+
+        .section-subtitle {
+            font-size: 20px;
+            color: #49454f;
+            margin-bottom: 48px;
+            max-width: 800px;
+        }
+
+        /* Content Grid */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 48px;
+            margin-bottom: 80px;
+        }
+
+        /* Cards */
+        .card-large {
+            background: #fef7ff;
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+            transition: all 300ms cubic-bezier(0.2, 0, 0, 1);
+            border: 1px solid #cab6cf;
+        }
+
+        .card-large:hover {
+            box-shadow: 0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px 0px rgba(0, 0, 0, 0.3);
+            transform: translateY(-4px);
+        }
+
+        .card-title {
+            font-size: 32px;
+            font-weight: 400;
+            margin-bottom: 16px;
+            color: #1c1b1f;
+        }
+
+        .card-text {
+            font-size: 16px;
+            color: #49454f;
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .card-small {
+            background: #e8def8;
+            border-radius: 16px;
+            padding: 24px;
+            transition: all 200ms cubic-bezier(0.2, 0, 0, 1);
+        }
+
+        .card-small:hover {
+            transform: scale(1.02);
+        }
+
+        .card-small h3 {
+            font-size: 20px;
+            font-weight: 500;
+            margin-bottom: 12px;
+            color: #1d192b;
+        }
+
+        .card-small p {
+            font-size: 14px;
+            color: #1d192b;
+            opacity: 0.8;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 24px;
+        }
+
+        .feature-card {
+            background: #fef7ff;
+            border-radius: 20px;
+            padding: 32px;
+            text-align: center;
+            box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+            transition: all 300ms cubic-bezier(0.2, 0, 0, 1);
+            border: 1px solid #cab6cf;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #6750a4, #7d5260);
+        }
+
+        .feature-card:hover {
+            box-shadow: 0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px 0px rgba(0, 0, 0, 0.3);
+            transform: translateY(-8px);
+        }
+
+        .feature-icon {
+            width: 72px;
+            height: 72px;
+            background: #eaddff;
+            border-radius: 20px;
+            margin: 0 auto 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            color: #21005d;
+        }
+
+        .feature-title {
+            font-size: 22px;
+            font-weight: 500;
+            margin-bottom: 16px;
+            color: #1c1b1f;
+        }
+
+        .feature-text {
+            font-size: 15px;
+            color: #49454f;
+            line-height: 1.5;
+        }
+
+        /* Code Block */
+        .code-block {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 32px;
+            border-radius: 16px;
+            font-family: 'JetBrains Mono', 'Consolas', monospace;
+            font-size: 14px;
+            line-height: 1.6;
+            overflow-x: auto;
+            margin: 24px 0;
+            box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.3), 0px 2px 6px 2px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Footer */
+        footer {
+            background: #e7e0ec;
+            padding: 64px 0;
+            margin-top: 80px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-text {
+            color: #49454f;
+            font-size: 14px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 32px;
+        }
+
+        .footer-link {
+            color: #49454f;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 200ms ease;
+        }
+
+        .footer-link:hover {
+            color: #6750a4;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-rail {
+                display: none;
+            }
+           
+            .main-content {
+                margin-left: 0;
+            }
+           
+            .hero-title {
+                font-size: 48px;
+            }
+           
+            .content-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+           
+            .hero-actions {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+           
+            .footer-content {
+                flex-direction: column;
+                gap: 24px;
+                text-align: center;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .card-large, .feature-card {
+            animation: fadeInUp 600ms cubic-bezier(0.2, 0, 0, 1) forwards;
         }
     </style>
 </head>
 <body>
-    
+    <nav class="nav-rail">
+        <div class="nav-logo">.NET</div>
+        <div class="nav-items">
+            <div class="nav-item active">Home</div>
+            <div class="nav-item">Start</div>
+            <div class="nav-item">Dev</div>
+            <div class="nav-item">Found</div>
+            <div class="nav-item">Style</div>
+            <div class="nav-item">Comp</div>
+            <div class="nav-item">Blog</div>
+        </div>
+    </nav>
 
+    <main class="main-content">
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">.NET MAUI</h1>
+                    <p class="hero-subtitle">Google's latest open source design system for building beautiful, usable products.</p>
+                    <p class="hero-description">M3 Expressive: Design with emotion. Build more usable and engaging products with emotion-driven UX. M3 Expressive adds vibrant colors, intuitive motion, adaptive components, flexible typography, and contrasting shapes.</p>
+                    <div class="hero-actions">
+                        <button class="btn-filled">Get started</button>
+                        <button class="btn-outlined">View Documentation</button>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <label class="abc">ABCDER</p>
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Cross-platform Development</h2>
+                <p class="section-subtitle">Build native apps for any device with .NET Multi-platform App UI. Write once, run everywhere with native performance and platform-specific features.</p>
+
+                <div class="content-grid">
+                    <div class="card-large">
+                        <h3 class="card-title">Native Performance</h3>
+                        <p class="card-text">Access native APIs and controls while maintaining high performance. Your apps feel truly native on each platform with platform-specific behaviors and styling.</p>
+                       
+                        <div class="code-block">
+&lt;ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             x:Class="MyApp.MainPage"&gt;
+    &lt;ScrollView&gt;
+        &lt;VerticalStackLayout Spacing="25" Padding="30"&gt;
+            &lt;Label Text="Hello, .NET MAUI!"
+                   FontSize="32"
+                   HorizontalOptions="Center" /&gt;
+            &lt;Button Text="Click me"
+                    Clicked="OnCounterClicked" /&gt;
+        &lt;/VerticalStackLayout&gt;
+    &lt;/ScrollView&gt;
+&lt;/ContentPage&gt;
+                        </div>
+                    </div>
+
+                    <div class="sidebar">
+                        <div class="card-small">
+                            <h3>Latest Release</h3>
+                            <p>.NET MAUI 8.0 brings enhanced performance, new controls, and improved tooling support for modern app development.</p>
+                        </div>
+                        <div class="card-small">
+                            <h3>Community</h3>
+                            <p>Join thousands of developers building amazing cross-platform applications with .NET MAUI worldwide.</p>
+                        </div>
+                        <div class="card-small">
+                            <h3>Learning Resources</h3>
+                            <p>Explore comprehensive tutorials, samples, and documentation to master .NET MAUI development quickly.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">📱</div>
+                        <h4 class="feature-title">Mobile First</h4>
+                        <p class="feature-text">Built for mobile development with touch-friendly controls and responsive layouts that adapt to any screen size and orientation.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">🖥️</div>
+                        <h4 class="feature-title">Desktop Ready</h4>
+                        <p class="feature-text">Create rich desktop applications for Windows and macOS with native menus, dialogs, and deep system integration.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">⚡</div>
+                        <h4 class="feature-title">Hot Reload</h4>
+                        <p class="feature-text">See your changes instantly with .NET Hot Reload. Modify your UI and business logic without rebuilding your entire application.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">🎨</div>
+                        <h4 class="feature-title">Custom Controls</h4>
+                        <p class="feature-text">Create beautiful, custom controls with flexible styling and theming options for consistent branding across platforms.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">🔧</div>
+                        <h4 class="feature-title">Rich Tooling</h4>
+                        <p class="feature-text">Full Visual Studio integration with IntelliSense, debugging, and project templates for rapid development workflows.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">🌐</div>
+                        <h4 class="feature-title">Web Integration</h4>
+                        <p class="feature-text">Embed web content seamlessly with WebView and share code between your web and mobile applications effortlessly.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="container">
+                <div class="footer-content">
+                    <p class="footer-text">&copy; 2024 Microsoft. .NET MAUI is open source.</p>
+                    <div class="footer-links">
+                        <a href="https://github.com/dotnet/maui" class="footer-link">GitHub</a>
+                        <a href="https://learn.microsoft.com/en-us/dotnet/maui/?view=net-maui-9.0" class="footer-link">Documentation</a>
+                        <a href="https://dotnet.microsoft.com/en-us/platform/support" class="footer-link">Support</a>
+                        <a href="https://www.microsoft.com/hr-hr/privacy/microsoft-consumer-health-data-privacy-policy" class="footer-link">License</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </main>
 </body>
 </html>
